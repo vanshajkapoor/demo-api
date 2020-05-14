@@ -3,7 +3,7 @@ const path=require('path');
 const bodyParser=require('body-parser');
 const cors=require('cors')
 
-const port = 8000;
+const PORT = process.env.PORT ||  8000;
 
 const app=express();
 app.use(bodyParser.json());
@@ -15,10 +15,11 @@ app.set('views','./view');
 app.use('/',require('./routes/index'));
 
 
-app.listen(port,function(err){
+
+app.listen(PORT,function(err){
     if(err){
         console.log("Error in running the server",err);
     }
 
-    console.log("Server is up and running on port :",port);
+    console.log("Server is up and running on port :",PORT);
 })
